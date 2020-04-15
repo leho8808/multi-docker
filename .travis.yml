@@ -16,7 +16,7 @@ after_success:
   # Log in to the docker CLI
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
   #Take those images and push the to dockerHub
-  - docker push dockerleho8808g/multi-client ./client
-  - docker push dockerleho8808gmulti-nginx ./nginx
-  - docker push dockerleho8808g/multi-server ./server
-  - docker push dockerleho8808g/multi-worker ./worker
+  - docker push dockerleho8808g/multi-client 
+  - docker push dockerleho8808g/multi-nginx 
+  - docker push dockerleho8808g/multi-server 
+  - docker push dockerleho8808g/multi-worker 
