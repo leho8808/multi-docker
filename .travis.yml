@@ -3,20 +3,20 @@ services:
   - docker
 
 before_install:
-  - docker build -t leho8808/react-test -f ./client/Dockerfile.dev ./client
+  - docker build -t dockerleho8808g/react-test -f ./client/Dockerfile.dev ./client
 
 script:
-  - docker run leho8808/react-test npm run test -- --coverage
+  - docker run dockerleho8808g/react-test npm run test -- --coverage
 
 after_success:
-  - docker build -t leho8808/multi-client ./client
-  - docker build -t leho8808/multi-nginx ./nginx
-  - docker build -t leho8808/multi-server ./server
-  - docker build -t leho8808/multi-worker ./worker
+  - docker build -t dockerleho8808g/multi-client ./client
+  - docker build -t dockerleho8808g/multi-nginx ./nginx
+  - docker build -t dockerleho8808g/multi-server ./server
+  - docker build -t dockerleho8808g/multi-worker ./worker
   # Log in to the docker CLI
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
   #Take those images and push the to dockerHub
-  - docker push leho8808/multi-client ./client
-  - docker push leho8808/multi-nginx ./nginx
-  - docker push leho8808/multi-server ./server
-  - docker push leho8808/multi-worker ./worker
+  - docker push dockerleho8808g/multi-client ./client
+  - docker push dockerleho8808gmulti-nginx ./nginx
+  - docker push dockerleho8808g/multi-server ./server
+  - docker push dockerleho8808g/multi-worker ./worker
