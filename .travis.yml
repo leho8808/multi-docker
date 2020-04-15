@@ -6,7 +6,7 @@ before_install:
   - docker build -t dockerleho8808g/react-test -f ./client/Dockerfile.dev ./client
 
 script:
-  - docker run dockerleho8808g/react-test npm run test -- --coverage
+  - docker run -e CI=true dockerleho8808g/react-test npm test
 
 after_success:
   - docker build -t dockerleho8808g/multi-client ./client
